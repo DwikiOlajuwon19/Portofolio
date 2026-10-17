@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M. Dwiki Septian Olajuwon — Penetration Tester</title>
+<meta name="description" content="Portfolio of Muhammad Dwiki Septian Olajuwon, penetration tester for web, API and mobile applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#10202e; --muted:#51606e; --line:#cfd6dd;
+  --accent:#0b5fa5; --crit:#b3261e; --crit-bg:#fbe9e7; --ok:#1d6b45; --ok-bg:#e3f3ea;
+  --sans:"Archivo","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1720; --surface:#16222e; --ink:#e7edf2; --muted:#9fb0bf; --line:#2a3a49;
+  --accent:#6bb6f2; --crit:#ff8f86; --crit-bg:#3a1f1d; --ok:#7fd3a4; --ok-bg:#16301f}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.25rem 1.5rem;padding-top:.7rem;padding-bottom:.7rem}
+.brand{font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-.01em}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1.1rem;font-size:.92rem}
+nav a{color:var(--muted);text-decoration:none;padding:.15rem 0}
+nav a:hover{color:var(--ink)}
+section{padding:4rem 0 1rem}
+h1,h2,h3{line-height:1.15;margin:0;letter-spacing:-.02em}
+h2{font-size:1.75rem;font-weight:800;margin-bottom:1.5rem}
+p{margin:0 0 1rem;max-width:68ch}
+
+/* hero */
+.hero{padding-top:3.5rem}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:2.5rem;align-items:start}
+h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800}
+.role{font-size:1.15rem;color:var(--muted);margin:1rem 0 1.5rem;max-width:36ch}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.finding{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--crit);border-radius:4px;font-family:var(--mono);font-size:.84rem;line-height:1.55}
+.finding .head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--line);color:var(--muted)}
+.finding .body{padding:1rem}
+.finding dl{margin:0;display:grid;grid-template-columns:7.5rem 1fr;gap:.55rem .75rem}
+.finding dt{color:var(--muted)}
+.finding dd{margin:0}
+.sev{background:var(--crit-bg);color:var(--crit);padding:.05rem .45rem;border-radius:3px;font-weight:500}
+.fixed{background:var(--ok-bg);color:var(--ok);padding:.05rem .45rem;border-radius:3px;font-weight:500}
+
+/* expertise */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.25rem}
+.card h3{font-size:1.05rem;margin-bottom:.4rem}
+.card p{font-size:.95rem;color:var(--muted);margin-bottom:.8rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.tags li{font-size:.8rem;border:1px solid var(--line);border-radius:3px;padding:.1rem .5rem;background:var(--bg)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.job{position:relative;padding:0 0 2rem 1.75rem}
+.job::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.job.now::before{background:var(--accent)}
+.when{font-size:.85rem;color:var(--muted);margin:0 0 .15rem}
+.job h3{font-size:1.15rem}
+.job .co{color:var(--muted);margin:.15rem 0 .6rem}
+.job ul{margin:.4rem 0 .8rem;padding-left:1.2rem;max-width:68ch}
+.job li{margin-bottom:.25rem}
+.stack{font-size:.88rem;color:var(--muted)}
+.stack b{color:var(--ink);font-weight:700}
+details{margin-top:.5rem}
+summary{cursor:pointer;font-weight:700;color:var(--accent);padding:.4rem 0}
+
+/* lists */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:2rem}
+.item{padding:1rem 0;border-top:1px solid var(--line)}
+.item h3{font-size:1.05rem}
+.item p{margin:.2rem 0 0;color:var(--muted);font-size:.95rem}
+.contact{padding-bottom:4rem}
+footer{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--muted);font-size:.88rem}
+
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr}
+  .finding dl{grid-template-columns:1fr;gap:.1rem}
+  .finding dd{margin-bottom:.6rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#home">M. Dwiki S. Olajuwon</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>I find the weak spots in your apps before attackers do.</h1>
+      <p class="role">Muhammad Dwiki Septian Olajuwon, penetration tester for web, API and mobile applications. Based in Jakarta, Indonesia.</p>
+      <div class="btns">
+        <a class="btn primary" href="#experience">See my experience</a>
+        <a class="btn" href="cv.pdf" download>Download CV</a>
+      </div>
+    </div>
+
+    <aside class="finding" aria-label="Example of how I report a finding">
+      <div class="head"><span>FINDING-001 (example)</span><span class="sev">Severity: High</span></div>
+      <div class="body">
+        <dl>
+          <dt>Target</dt><dd>Web app, API, Android and iOS builds</dd>
+          <dt>Method</dt><dd>Manual testing with Burp Suite, Frida and Objection, then verified scans</dd>
+          <dt>Impact</dt><dd>Explained in business terms for the app owner</dd>
+          <dt>Remediation</dt><dd>Clear fix steps in every report</dd>
+          <dt>Status</dt><dd><span class="fixed">Retest after fix</span></dd>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I am a cybersecurity professional who identifies security vulnerabilities in web applications, mobile apps and APIs.</p>
+    <p>My reports cover what I found, its potential impact, and actionable remediation steps, so development teams can fix issues and make their systems more secure and resilient.</p>
+    <p>Before moving into security, I spent several years in quality assurance on banking and finance projects. That background shows in how I test: carefully, with evidence, and with a report someone else can follow.</p>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <h2>Expertise</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Web and API penetration testing</h3>
+        <p>Manual testing plus DAST scanning to find and confirm vulnerabilities.</p>
+        <ul class="tags"><li>Burp Suite</li><li>Acunetix</li><li>SQLMap</li></ul>
+      </article>
+      <article class="card">
+        <h3>Mobile penetration testing</h3>
+        <p>Android (APK) and iOS (IPA) application testing.</p>
+        <ul class="tags"><li>Objection</li><li>Frida</li><li>MobSF</li></ul>
+      </article>
+      <article class="card">
+        <h3>Vulnerability assessment</h3>
+        <p>Infrastructure and server application assessments.</p>
+        <ul class="tags"><li>Nessus</li><li>Nmap</li><li>Linux</li></ul>
+      </article>
+      <article class="card">
+        <h3>Performance and quality testing</h3>
+        <p>Load testing, functional QA and data verification.</p>
+        <ul class="tags"><li>Apache JMeter</li><li>JIRA</li><li>SQL Server</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <ol class="timeline">
+
+      <li class="job now">
+        <p class="when">May 2025 – Jul 2026</p>
+        <h3>Penetration Tester</h3>
+        <p class="co">PT IBM Delivery Indonesia · Project: Pertamina Patra Niaga (remote)</p>
+        <ul>
+          <li>Performed penetration testing for web, API and mobile (APK and IPA) applications.</li>
+          <li>Documented test reports with remediation recommendations.</li>
+        </ul>
+        <p class="stack"><b>Tools:</b> Burp Suite, Nessus, Linux, SQLMap, Objection, Frida, MobSF</p>
+      </li>
+
+      <li class="job">
+        <p class="when">Jul 2024 – May 2025</p>
+        <h3>Penetration Tester</h3>
+        <p class="co">PT Equine Global · Project: Pertamina Patra Niaga (remote)</p>
+        <ul>
+          <li>Performed penetration testing for web, API and mobile (APK and IPA) applications.</li>
+          <li>Documented test reports with remediation recommendations.</li>
+        </ul>
+        <p class="stack"><b>Tools:</b> Burp Suite, Nessus, Linux</p>
+      </li>
+
+      <li class="job">
+        <p class="when">Dec 2022 – Dec 2024</p>
+        <h3>Penetration Tester</h3>
+        <p class="co">PT Equine Global · Project: Bank Indonesia (onsite)</p>
+        <ul>
+          <li>Performed penetration testing for web, API and mobile (APK and IPA), plus vulnerability assessment of infrastructure server applications.</li>
+          <li>Documented VAPT reports with remediation recommendations.</li>
+        </ul>
+        <p class="stack"><b>Tools:</b> Burp Suite, Nessus, Acunetix, Linux, SQLMap, Objection, Frida, MobSF, JIRA</p>
+      </li>
+
+      <li class="job">
+        <p class="when">Oct 2021 – Nov 2022</p>
+        <h3>Quality Assurance</h3>
+        <p class="co">PT Equine Global · Projects: Askrindo, Bank Danamon, KSEI, Adira</p>
+        <ul>
+          <li>Vulnerability assessment of Askrindo server infrastructure.</li>
+          <li>Quality assurance for the Wealth Management application at Bank Danamon.</li>
+          <li>JIRA implementation at KSEI.</li>
+          <li>Performance testing for CRMNext at Adira Dinamika Finance.</li>
+        </ul>
+        <p class="stack"><b>Tools:</b> Linux, Nmap, functional QA, JIRA, JMeter</p>
+      </li>
+    </ol>
+
+    <details>
+      <summary>Earlier roles (2018 – 2021)</summary>
+      <ol class="timeline" style="margin-top:1rem">
+        <li class="job">
+          <p class="when">Apr 2021 – Sep 2021</p>
+          <h3>Quality Assurance</h3>
+          <p class="co">PT Equine Global · Project: Bank Indonesia (BIMASAKTI)</p>
+          <ul>
+            <li>Verified business data before and after migration.</li>
+            <li>Prepared data verification reports for user review.</li>
+          </ul>
+          <p class="stack"><b>Tools:</b> Microsoft SQL Server, SQL Developer, Excel, JIRA</p>
+        </li>
+        <li class="job">
+          <p class="when">Jan 2019 – Mar 2021</p>
+          <h3>Quality Assurance</h3>
+          <p class="co">PT Xsis Mitra Utama · Project: Bank Indonesia (BIMASAKTI)</p>
+          <ul>
+            <li>Verified business data before and after migration.</li>
+            <li>Prepared data verification reports for user review.</li>
+          </ul>
+          <p class="stack"><b>Tools:</b> SQL Server Management Studio, SQL Developer, Excel, JIRA</p>
+        </li>
+        <li class="job">
+          <p class="when">Aug 2020 – Dec 2020</p>
+          <h3>Quality Assurance (performance testing)</h3>
+          <p class="co">PT Xsis Mitra Utama · Project: Bank Indonesia</p>
+          <ul>
+            <li>Ran performance tests with Apache JMeter on the internal and external CRM portals, BIWEB, E-Licensing and PINTAR.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when">Nov 2018 – Dec 2018</p>
+          <h3>Front-end Developer</h3>
+          <p class="co">PT Xsis Mitra Utama · Project: Owlexa Mandiri InHealth (enhancement)</p>
+          <p class="stack"><b>Tools:</b> JavaScript, CSS, Ajax, HTML</p>
+        </li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap two">
+    <div>
+      <h2>Certifications</h2>
+      <div class="item"><h3>AWS Certified Cloud Practitioner</h3><p>AWS · Jul 2026 – Jul 2029</p></div>
+      <div class="item"><h3>Web Penetration Testing Professional (eWPT)</h3><p>INE Security · Dec 2024 – Dec 2027</p></div>
+      <div class="item"><h3>Certified Ethical Hacker (CEH)</h3><p>EC-Council · Oct 2023 – Oct 2026</p></div>
+    </div>
+    <div>
+      <h2>Education</h2>
+      <div class="item"><h3>B.Sc. in Informatics Engineering</h3><p>Universitas Islam Negeri Sunan Gunung Djati Bandung · 2013 – 2017 · GPA 3.42 / 4.00</p></div>
+      <div class="item"><h3>Java Programmer Bootcamp</h3><p>PT Xsis Mitra Utama · Jul 2018 – Aug 2018 · Building applications with Spring Boot</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Need a security test for a web, API or mobile app? Send me an email and I will reply with questions about scope.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:Dwiki.olajuwon@gmail.com?subject=Security%20testing%20inquiry">Email me</a>
+      <a class="btn" href="cv.pdf" download>Download CV</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Muhammad Dwiki Septian Olajuwon · Jakarta, Indonesia. Client details and findings are confidential and not published here.</div>
+</footer>
+
+</body>
+</html>
